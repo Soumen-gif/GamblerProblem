@@ -7,10 +7,12 @@ stakes=100
 day=0
 game=0
 isWon=1
+winningGoal=150
+loosingLimit=50
 noOfBets=5
-#UC2:Win is getting decided by randomly
+#UC2:As calculative gambler if won or loose 50% of stakes it will be end of day
 function gamble(){
-	while [[ $game -lt $noOfBets ]]
+	while [[ $stakes -gt $loosingLimit && $stakes -lt $winningGoal ]]
 	do
 		if [[ $((RANDOM%2)) -eq $isWon ]]
 		then
