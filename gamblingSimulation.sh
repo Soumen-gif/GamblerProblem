@@ -12,7 +12,7 @@ loosingLimit=50
 noOfBets=5
 totalAmount=0
 totalLost=0
-#UC4:echo the loss or won per month
+#UC5:echo the loss or won per month
 function gamble(){
 		while [[ $stakes -gt $loosingLimit && $stakes -lt $winningGoal ]]
 		do
