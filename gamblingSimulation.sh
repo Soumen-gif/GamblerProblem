@@ -10,7 +10,7 @@ isWon=1
 winningGoal=150
 loosingLimit=50
 noOfBets=5
-totalWon=0
+totalAmount=0
 totalLost=0
 #UC4:Play for 20 days and calculate total won or lost
 function gamble(){
@@ -29,7 +29,14 @@ function gamble(){
 function playForDays(){
 	for (( index=0; index<$day; index++ ))
 	do
-		totalWon=$(($totalWon+$( gamble )))
+		totalAmount=$(($totalAmount+$( gamble )))
 	done
+	investedAmount=$(($day*100))
+	if [[ $(($totalAmount-$investedAmount)) -lt 0 ]]
+	then
+		lost=$(($investedAmount-$totalAmount))
+	else
+		won=$(($totalAmount-$investedAmount))
+	fi
 }
 playForDays
