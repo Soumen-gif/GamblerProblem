@@ -55,6 +55,16 @@ function playForDays(){
       won=$(($totalAmount-$investedAmount))
       echo "Total win this month are: $won"
    fi
-
+wantToPlayAgain
 }
-playForDays
+function wantToPlayAgain(){
+	read -p "Want To play Again: Y/N?" choice
+	if [[ $choice == y || $choice == Y ]]
+	then
+		playForDays
+	elif [[ $choice == n || $choice == N ]]
+	then
+		exit
+	fi
+}
+wantToPlayAgain
