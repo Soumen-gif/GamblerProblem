@@ -6,12 +6,19 @@
 stakes=100
 day=0
 game=0
-#UC1:After 1 win stakes will increse by 1
+isWon=1
+noOfBets=5
+#UC2:Win is getting decided by randomly
 function gamble(){
-	while [[ $game -lt 1 ]]
+	while [[ $game -lt $noOfBets ]]
 	do
-		stakes=$(($stakes+1))
-		((game++))
+		if [[ $((RANDOM%2)) -eq $isWon ]]
+		then
+			stakes=$(($stakes+1))
+		else
+			stakes=$(($stakes-1))
+		fi
+			((game++))
 	done
 }
 gamble
