@@ -10,7 +10,7 @@ isWon=1
 winningGoal=150
 loosingLimit=50
 noOfBets=5
-#UC2:As calculative gambler if won or loose 50% of stakes it will be end of day
+#UC3:As calculative gambler if won or loose 50% of stakes it will be end of day
 function gamble(){
 	while [[ $stakes -gt $loosingLimit && $stakes -lt $winningGoal ]]
 	do
