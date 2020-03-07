@@ -31,12 +31,5 @@ function playForDays(){
 	do
 		totalAmount=$(($totalAmount+$( gamble )))
 	done
-	investedAmount=$(($day*100))
-	if [[ $(($totalAmount-$investedAmount)) -lt 0 ]]
-	then
-		lost=$(($investedAmount-$totalAmount))
-	else
-		won=$(($totalAmount-$investedAmount))
-	fi
 }
 playForDays
