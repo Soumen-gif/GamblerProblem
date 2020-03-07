@@ -12,7 +12,7 @@ loosingLimit=50
 noOfBets=5
 totalAmount=0
 totalLost=0
-#UC4:Play for 20 days and calculate total won or lost
+#UC4:echo the loss or won per month
 function gamble(){
 		while [[ $stakes -gt $loosingLimit && $stakes -lt $winningGoal ]]
 		do
@@ -31,5 +31,15 @@ function playForDays(){
 	do
 		totalAmount=$(($totalAmount+$( gamble )))
 	done
+	investedAmount=$(($day*100))
+   if [[ $(($totalAmount-$investedAmount)) -lt 0 ]]
+   then
+      lost=$(($investedAmount-$totalAmount))
+		echo "Total lost this month are: $lost"
+   else
+      won=$(($totalAmount-$investedAmount))
+		echo "Total win this month are: $won"
+   fi
+
 }
 playForDays
